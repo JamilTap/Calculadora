@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Calculadora</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="calculadora">
+    <div class="pantalla">
+      <div id="operacion-anterior"></div>
+      <input type="text" id="pantalla" disabled />
+    </div>
+    <div class="botones">
+      <button class="limpiar" id="btn-limpiar">C</button>
+      <button id="btn-parentesis-abrir">(</button>
+      <button id="btn-parentesis-cerrar">)</button>
+      <button class="operador" data-operador="/">÷</button>
+
+      <button data-numero="7">7</button>
+      <button data-numero="8">8</button>
+      <button data-numero="9">9</button>
+      <button class="operador" data-operador="*">×</button>
+
+      <button data-numero="4">4</button>
+      <button data-numero="5">5</button>
+      <button data-numero="6">6</button>
+      <button class="operador" data-operador="-">−</button>
+
+      <button data-numero="1">1</button>
+      <button data-numero="2">2</button>
+      <button data-numero="3">3</button>
+      <button class="operador" data-operador="+">+</button>
+
+      <button data-numero="0">0</button>
+      <button data-numero=".">.</button>
+      <button class="operador" data-operador="%">%</button>
+      <button class="igual" id="btn-igual">=</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
