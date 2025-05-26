@@ -79,6 +79,7 @@ Debes borrar ahora o guardar el archivo "appp.test.js y el calculadora.test.js",
 npx mocha
 ```
 ## 📁 Estructura del proyecto
+```bash
 📦 calculadora/
 ├── src/
 │   ├── index.html --Index base sin funciones vista previa
@@ -94,7 +95,7 @@ npx mocha
 ├── package.json
 ├── jest.config.js
 └── README.md
-
+```
 ##🧑‍💻 Autor
 💼 GitHub: Jamiltap
 📄 Licencia
