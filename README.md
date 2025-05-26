@@ -12,6 +12,11 @@ Una calculadora web desarrollada con HTML, CSS y JavaScript puro. Incluye histor
 ## 📸 Capturas de pantalla
 ![image](https://github.com/user-attachments/assets/bba3e4b2-5bc2-491d-96b2-e4678b4da90d)
 ![image](https://github.com/user-attachments/assets/588dfb74-5e9f-4901-a2f3-d1dfa25e4e1e)
+Operaciones Jest y Mocha
+![image](https://github.com/user-attachments/assets/3206d7a0-0690-4002-9b2a-e44813665d16)
+![image](https://github.com/user-attachments/assets/64d9df0b-2635-43ad-b999-578702056688)
+
+
 
 ---
 
