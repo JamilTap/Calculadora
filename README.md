@@ -55,12 +55,48 @@ npm test
 ## 🧪 Ejecutar Pruebas Jest
 4. Cambiar el una parte del codigo del Package.json,el "test" a jest
    
- ```bash
+```bash
   "type": "module",
   "scripts": {
     "test": "jest"
   },
 ```
+5. Debes borrar el archivo app.test.js o guardarlo en una nota rapida, ese es el codigo para el test mocha,si no se hace el framework jest va a intentar evaluar el codigo Mocha dando un error.
 ```bash
 npx jest
 ```
+##  Ejecutar Pruebas Mocha
+6. Cambiar el una parte del codigo del Package.json,el "test" a Mocha
+   
+ ```bash
+  "type": "module",
+  "scripts": {
+    "test": "Mocha"
+  },
+```
+Debes borrar ahora o guardar el archivo "appp.test.js y el calculadora.test.js", esos son los codigos para el test jest,si no se hace el framework mocha va a intentar evaluar el codigo jest dando un error.
+```bash
+npx mocha
+```
+## 📁 Estructura del proyecto
+📦 calculadora/
+├── src/
+│   ├── index.html --Index base sin funciones vista previa
+│   ├── index2.html
+│   ├── styles.css
+│   └── app.js
+├── test/
+│   ├── app.test.js --Codigo para pruebas Jest
+│   ├── appp.test.js --Codigo para pruebas Mocha
+│   ├── calculadora.test.js --Codigo para pruebas Jest si esta funcionando correctamente la calculadora
+│   └── Otros.etc
+├── ....
+├── package.json
+├── jest.config.js
+└── README.md
+
+##🧑‍💻 Autor
+💼 GitHub: Jamiltap
+📄 Licencia
+Este proyecto está bajo la licencia MIT. Libre para uso y modificación.
+
