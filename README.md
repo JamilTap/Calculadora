@@ -96,10 +96,10 @@ npx mocha
 ├── jest.config.js
 └── README.md
 ```
-##🧑‍💻 Autor
+## 🧑‍💻 Autor
 ```bash
 💼 GitHub: Jamiltap
 ```
-##📄 Licencia
+## 📄 Licencia
 Este proyecto está bajo la licencia MIT. Libre para uso y modificación.
 
