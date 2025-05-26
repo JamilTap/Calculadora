@@ -41,12 +41,26 @@ Una calculadora web desarrollada con HTML, CSS y JavaScript puro. Incluye histor
 
 
 git clone https://github.com/Jamiltap/calculadora.git
+
 cd calculadora
 
 2. Abre `index2.html` en tu navegador.
 
 ## Cómo ejecutar pruebas
-
+3.Instala las dependencias (si hay):
 ```bash
 npm install
 npm test
+```
+## 🧪 Ejecutar Pruebas Jest
+4. Cambiar el una parte del codigo del Package.json,el "test" a jest
+   
+ ```bash
+  "type": "module",
+  "scripts": {
+    "test": "jest"
+  },
+```
+```bash
+npx jest
+```
