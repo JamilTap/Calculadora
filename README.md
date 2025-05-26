@@ -65,7 +65,10 @@ npm test
   "scripts": {
     "test": "jest"
   },
+ 
 ```
+NOTA: debe marcarles unos 15 errores en ambos frameworks, eso son errores provocados por el desarrollador para comprovar el funcionamiento de ambos framewor
+---
 5. Debes borrar el archivo app.test.js o guardarlo en una nota rapida, ese es el codigo para el test mocha,si no se hace el framework jest va a intentar evaluar el codigo Mocha dando un error.
 ```bash
 npx jest
