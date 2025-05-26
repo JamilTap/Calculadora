@@ -97,7 +97,9 @@ npx mocha
 └── README.md
 ```
 ##🧑‍💻 Autor
+```bash
 💼 GitHub: Jamiltap
-📄 Licencia
+```
+##📄 Licencia
 Este proyecto está bajo la licencia MIT. Libre para uso y modificación.
 
