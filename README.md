@@ -2,7 +2,7 @@
 
 ## 📑 Índice
 
-1. [Introducción](#1-📌-introducción)  
+1. [Introducción](#1.introducción)  
 2. [Características Principales](#2-🔹-características-principales)  
 3. [Configuración Inicial](#3-🚀-configuración-inicial)  
 4. [Estructura de Pruebas](#4-🧪-estructura-de-pruebas)  
