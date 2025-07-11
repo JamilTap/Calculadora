@@ -5,15 +5,9 @@
   <title>Calculadora</title>
   <style>
     @keyframes gradientAnimation {
-      0% {
-        background-position: 0% 50%;
-      }
-      50% {
-        background-position: 100% 50%;
-      }
-      100% {
-        background-position: 0% 50%;
-      }
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     body {
@@ -23,11 +17,7 @@
       align-items: center;
       height: 100vh;
       margin: 0;
-      background: linear-gradient(-45deg,
-        #2b5ba7,
-        #31a74e,
-        #922c2c,
-        #a5a32d);
+      background: linear-gradient(-45deg, #2b5ba7, #31a74e, #922c2c, #a5a32d);
       background-size: 400% 400%;
       animation: gradientAnimation 20s ease infinite;
     }
@@ -62,9 +52,7 @@
     }
 
     @keyframes parpadeo {
-      50% {
-        caret-color: transparent;
-      }
+      50% { caret-color: transparent; }
     }
 
     #operacion-anterior {
@@ -90,46 +78,18 @@
       user-select: none;
     }
 
-    button:hover:not(:disabled) {
-      background-color: #bdc3c7;
-    }
+    button:hover:not(:disabled) { background-color: #bdc3c7; }
+    button:active:not(:disabled) { transform: scale(0.95); }
+    button:disabled { opacity: 0.5; cursor: not-allowed; }
 
-    button:active:not(:disabled) {
-      transform: scale(0.95);
-    }
+    .operador { background-color: #f39c12; color: white; }
+    .operador:hover:not(:disabled) { background-color: #e67e22; }
 
-    button:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
+    .limpiar { background-color: #e74c3c; color: white; }
+    .limpiar:hover:not(:disabled) { background-color: #c0392b; }
 
-    .operador {
-      background-color: #f39c12;
-      color: white;
-    }
-
-    .operador:hover:not(:disabled) {
-      background-color: #e67e22;
-    }
-
-    .limpiar {
-      background-color: #e74c3c;
-      color: white;
-    }
-
-    .limpiar:hover:not(:disabled) {
-      background-color: #c0392b;
-    }
-
-    .igual {
-      background-color: #2ecc71;
-      color: white;
-      grid-column: span 1;
-    }
-
-    .igual:hover:not(:disabled) {
-      background-color: #27ae60;
-    }
+    .igual { background-color: #2ecc71; color: white; }
+    .igual:hover:not(:disabled) { background-color: #27ae60; }
 
     .historial {
       background: #f7f7f7;
@@ -157,40 +117,34 @@
   <div class="calculadora">
     <div class="pantalla">
       <div id="operacion-anterior"></div>
-      <input type="text" id="pantalla" autofocus />
+      <input type="text" id="pantalla" autofocus readonly />
     </div>
     <div class="botones">
-      <!-- Primera fila -->
       <button class="limpiar" onclick="limpiar()">C</button>
       <button class="operador" onclick="agregarOperador('%')">%</button>
       <button class="operador" onclick="agregarOperador('/')">/</button>
       <button class="operador" onclick="agregarOperador('*')">*</button>
 
-      <!-- Segunda fila -->
       <button onclick="agregarNumero('7')">7</button>
       <button onclick="agregarNumero('8')">8</button>
       <button onclick="agregarNumero('9')">9</button>
       <button class="operador" onclick="agregarOperador('-')">-</button>
 
-      <!-- Tercera fila -->
       <button onclick="agregarNumero('4')">4</button>
       <button onclick="agregarNumero('5')">5</button>
       <button onclick="agregarNumero('6')">6</button>
       <button class="operador" onclick="agregarOperador('+')">+</button>
 
-      <!-- Cuarta fila -->
       <button onclick="agregarNumero('1')">1</button>
       <button onclick="agregarNumero('2')">2</button>
       <button onclick="agregarNumero('3')">3</button>
       <button class="igual" id="btn-igual" onclick="calcular()">=</button>
 
-      <!-- Quinta fila -->
       <button onclick="agregarNumero('0')">0</button>
       <button onclick="agregarNumero('.')">.</button>
       <button onclick="agregarParentesis('(')">(</button>
       <button onclick="agregarParentesis(')')">)</button>
 
-      <!-- Sexta fila (botón extra para borrar un carácter) -->
       <button style="grid-column: span 4;" onclick="borrarUltimo()">← Borrar último</button>
     </div>
     <div class="historial">
@@ -213,10 +167,7 @@
 
     function agregarOperador(operador) {
       const ultimoCaracter = pantalla.value.slice(-1);
-      if (
-        !['+', '-', '*', '/', '%'].includes(ultimoCaracter) &&
-        pantalla.value !== 'Error'
-      ) {
+      if (!['+', '-', '*', '/', '%'].includes(ultimoCaracter) && pantalla.value !== 'Error') {
         pantalla.value += operador;
       }
     }
@@ -232,7 +183,6 @@
     function calcular() {
       const operacionAnterior = document.getElementById('operacion-anterior');
       const historial = document.getElementById('lista-historial');
-
       try {
         const operacion = pantalla.value;
         const resultado = eval(operacion);
@@ -278,7 +228,6 @@
       btnIgual.style.cursor = 'pointer';
     }
 
-    // Manejo del teclado
     document.addEventListener('keydown', function (e) {
       const teclasValidas = '0123456789+-*/().%';
       const esControl = ['Enter', 'Backspace', 'Escape'];
@@ -298,7 +247,7 @@
       } else if (e.key === 'Escape') {
         limpiar();
       } else if (!esControl.includes(e.key)) {
-        e.preventDefault(); // Bloquea letras y otros caracteres inválidos
+        e.preventDefault();
       }
     });
   </script>
