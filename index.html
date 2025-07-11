@@ -1,9 +1,21 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Calculadora</title>
   <style>
+    @keyframes gradientAnimation {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
     body {
       font-family: 'Arial', sans-serif;
       display: flex;
@@ -11,14 +23,20 @@
       align-items: center;
       height: 100vh;
       margin: 0;
-      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      background: linear-gradient(-45deg,
+        #2b5ba7,
+        #31a74e,
+        #922c2c,
+        #a5a32d);
+      background-size: 400% 400%;
+      animation: gradientAnimation 20s ease infinite;
     }
 
     .calculadora {
       width: 320px;
       border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
       background-color: #fafbfb;
     }
 
@@ -38,6 +56,15 @@
       text-align: right;
       padding: 0 10px;
       box-sizing: border-box;
+      outline: none;
+      caret-color: white;
+      animation: parpadeo 1s step-start 0s infinite;
+    }
+
+    @keyframes parpadeo {
+      50% {
+        caret-color: transparent;
+      }
     }
 
     #operacion-anterior {
@@ -60,14 +87,20 @@
       cursor: pointer;
       transition: all 0.2s;
       background-color: #ecf0f1;
+      user-select: none;
     }
 
-    button:hover {
+    button:hover:not(:disabled) {
       background-color: #bdc3c7;
     }
 
-    button:active {
+    button:active:not(:disabled) {
       transform: scale(0.95);
+    }
+
+    button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
     }
 
     .operador {
@@ -75,7 +108,7 @@
       color: white;
     }
 
-    .operador:hover {
+    .operador:hover:not(:disabled) {
       background-color: #e67e22;
     }
 
@@ -84,7 +117,7 @@
       color: white;
     }
 
-    .limpiar:hover {
+    .limpiar:hover:not(:disabled) {
       background-color: #c0392b;
     }
 
@@ -94,8 +127,29 @@
       grid-column: span 1;
     }
 
-    .igual:hover {
+    .igual:hover:not(:disabled) {
       background-color: #27ae60;
+    }
+
+    .historial {
+      background: #f7f7f7;
+      padding: 10px;
+      max-height: 150px;
+      overflow-y: auto;
+    }
+
+    .historial h3 {
+      margin: 5px 0;
+    }
+
+    .historial ul {
+      list-style: none;
+      padding-left: 10px;
+    }
+
+    .historial li {
+      font-size: 0.9rem;
+      margin-bottom: 5px;
     }
   </style>
 </head>
@@ -103,93 +157,150 @@
   <div class="calculadora">
     <div class="pantalla">
       <div id="operacion-anterior"></div>
-      <input type="text" id="pantalla" readonly>
+      <input type="text" id="pantalla" autofocus />
     </div>
     <div class="botones">
+      <!-- Primera fila -->
       <button class="limpiar" onclick="limpiar()">C</button>
       <button class="operador" onclick="agregarOperador('%')">%</button>
       <button class="operador" onclick="agregarOperador('/')">/</button>
       <button class="operador" onclick="agregarOperador('*')">*</button>
 
+      <!-- Segunda fila -->
       <button onclick="agregarNumero('7')">7</button>
       <button onclick="agregarNumero('8')">8</button>
       <button onclick="agregarNumero('9')">9</button>
       <button class="operador" onclick="agregarOperador('-')">-</button>
 
+      <!-- Tercera fila -->
       <button onclick="agregarNumero('4')">4</button>
       <button onclick="agregarNumero('5')">5</button>
       <button onclick="agregarNumero('6')">6</button>
       <button class="operador" onclick="agregarOperador('+')">+</button>
 
+      <!-- Cuarta fila -->
       <button onclick="agregarNumero('1')">1</button>
       <button onclick="agregarNumero('2')">2</button>
       <button onclick="agregarNumero('3')">3</button>
-      <button class="igual" onclick="calcular()">=</button>
+      <button class="igual" id="btn-igual" onclick="calcular()">=</button>
 
+      <!-- Quinta fila -->
       <button onclick="agregarNumero('0')">0</button>
       <button onclick="agregarNumero('.')">.</button>
       <button onclick="agregarParentesis('(')">(</button>
       <button onclick="agregarParentesis(')')">)</button>
-      
+
+      <!-- Sexta fila (botón extra para borrar un carácter) -->
+      <button style="grid-column: span 4;" onclick="borrarUltimo()">← Borrar último</button>
     </div>
     <div class="historial">
-  <h3>Historial</h3>
-  <ul id="lista-historial"></ul>
-  </div>
+      <h3>Historial</h3>
+      <ul id="lista-historial"></ul>
+    </div>
   </div>
 
   <script>
+    const pantalla = document.getElementById('pantalla');
+    const btnIgual = document.getElementById('btn-igual');
+
     function agregarNumero(numero) {
-      const pantalla = document.getElementById('pantalla');
+      if (pantalla.value === 'Error') {
+        pantalla.value = '';
+        activarIgual();
+      }
       pantalla.value += numero;
     }
 
     function agregarOperador(operador) {
-      const pantalla = document.getElementById('pantalla');
       const ultimoCaracter = pantalla.value.slice(-1);
-
-      if (!['+', '-', '*', '/', '%', '(', ')'].includes(ultimoCaracter)) {
+      if (
+        !['+', '-', '*', '/', '%'].includes(ultimoCaracter) &&
+        pantalla.value !== 'Error'
+      ) {
         pantalla.value += operador;
       }
     }
 
     function agregarParentesis(par) {
-      const pantalla = document.getElementById('pantalla');
+      if (pantalla.value === 'Error') {
+        pantalla.value = '';
+        activarIgual();
+      }
       pantalla.value += par;
     }
 
-   function calcular() {
-  const pantalla = document.getElementById('pantalla');
-  const operacionAnterior = document.getElementById('operacion-anterior');
-  const historial = document.getElementById('lista-historial');
+    function calcular() {
+      const operacionAnterior = document.getElementById('operacion-anterior');
+      const historial = document.getElementById('lista-historial');
 
-  try {
-    const operacion = pantalla.value;
-    const resultado = eval(operacion);
-    operacionAnterior.textContent = operacion + ' =';
-    pantalla.value = resultado;
+      try {
+        const operacion = pantalla.value;
+        const resultado = eval(operacion);
+        operacionAnterior.textContent = operacion + ' =';
+        pantalla.value = resultado;
 
-    // Agregar al historial
-    const li = document.createElement('li');
-    li.innerHTML = `✅ <strong>${operacion} = ${resultado}</strong>`;
-    historial.appendChild(li);
-  } catch {
-    pantalla.value = 'Error';
-
-    //  guardar  errores
-    const li = document.createElement('li');
-    li.innerHTML = `❌ <strong>${pantalla.value}</strong>`;
-    historial.appendChild(li);
-  }
-}
+        const li = document.createElement('li');
+        li.innerHTML = `✅ <strong>${operacion} = ${resultado}</strong>`;
+        historial.appendChild(li);
+      } catch {
+        pantalla.value = 'Error';
+        const li = document.createElement('li');
+        li.innerHTML = `❌ <strong>Error</strong>`;
+        historial.appendChild(li);
+        desactivarIgual();
+      }
+    }
 
     function limpiar() {
-      document.getElementById('pantalla').value = '';
+      pantalla.value = '';
       document.getElementById('operacion-anterior').textContent = '';
+      activarIgual();
     }
-    
-  </script>
-  
 
+    function borrarUltimo() {
+      if (pantalla.value === 'Error') {
+        pantalla.value = '';
+        activarIgual();
+        return;
+      }
+      pantalla.value = pantalla.value.slice(0, -1);
+    }
+
+    function desactivarIgual() {
+      btnIgual.disabled = true;
+      btnIgual.style.opacity = '0.5';
+      btnIgual.style.cursor = 'not-allowed';
+    }
+
+    function activarIgual() {
+      btnIgual.disabled = false;
+      btnIgual.style.opacity = '1';
+      btnIgual.style.cursor = 'pointer';
+    }
+
+    // Manejo del teclado
+    document.addEventListener('keydown', function (e) {
+      const teclasValidas = '0123456789+-*/().%';
+      const esControl = ['Enter', 'Backspace', 'Escape'];
+
+      if (pantalla.value === 'Error' && '0123456789'.includes(e.key)) {
+        pantalla.value = '';
+        activarIgual();
+      }
+
+      if (teclasValidas.includes(e.key)) {
+        pantalla.value += e.key;
+      } else if (e.key === 'Enter') {
+        e.preventDefault();
+        if (!btnIgual.disabled) calcular();
+      } else if (e.key === 'Backspace') {
+        borrarUltimo();
+      } else if (e.key === 'Escape') {
+        limpiar();
+      } else if (!esControl.includes(e.key)) {
+        e.preventDefault(); // Bloquea letras y otros caracteres inválidos
+      }
+    });
+  </script>
 </body>
 </html>
