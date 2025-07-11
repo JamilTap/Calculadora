@@ -51,6 +51,8 @@ yarn add --dev jest
   }
 }
 ```
+---
+
 ## 4. 🧪 Estructura de Pruebas
 4.1 Arquitectura del Proyecto
 ```bash
@@ -59,6 +61,8 @@ src/
 test/
 ├── calculator.test.js   # Pruebas unitarias
 ```
+---
+
 ## 5. 📝 Ejemplo de Prueba
 js
 ```bash
@@ -83,6 +87,8 @@ describe('Operaciones básicas', () => {
   });
 });
 ```
+---
+
 ## 6. 📊 Resultados de Pruebas
 ✅ Pruebas Exitosas (19/34)
 Las siguientes operaciones funcionaron correctamente:
@@ -103,86 +109,85 @@ Expresión	Resultado	Esperado	Tipo de Error	Causa Probable
 (12/3)*2	8	6	Error en test	Expectativa incorrecta
 (8%5)*3	9	4	Error en test	Cálculo correcto, test mal diseñado
 
-7. 🔧 Solución a Fallos Comunes
+---
+
+## 7. 🔧 Solución a Fallos Comunes
 7.1 Errores en Tests (60%)
 Problema: Tests con expectativas incorrectas.
 Solución:
 
-js
-Copiar
-Editar
+```bash
 // ❌ Incorrecto
 test('(12/3)*2 should be 6', () => {
   expect(calculate('(12/3)*2')).toBe(6); // Error
 });
-
+```
+```bash
 // ✅ Corregido
 test('(12/3)*2 should be 8', () => {
   expect(calculate('(12/3)*2')).toBe(8);
 });
+```
 7.2 Precisión Decimal (20%)
 Problema: 0.1 + 0.2 no es exactamente 0.3 en JavaScript.
 Solución: Usar librerías como math.js.
 
-js
-Copiar
-Editar
+```bash
 const math = require('mathjs');
 
 test('0.1 + 0.2 ≈ 0.3', () => {
   expect(math.evaluate('0.1 + 0.2')).toBeCloseTo(0.3);
 });
+```
+
 7.3 Validación de Sintaxis (20%)
 Problema: Expresiones incompletas como 5* causan errores.
 Solución: Validar la expresión antes de evaluarla.
 
-js
-Copiar
-Editar
+```bash
 function calculate(expr) {
   if (!expr.includes('+') && !expr.includes('-') && !expr.includes('*') && !expr.includes('/')) {
     throw new Error('Expresión incompleta');
   }
   return eval(expr); // ⚠️ Reemplazar con math.js en producción
 }
+```
 8. 📈 Cobertura de Pruebas
 Ejecuta:
 
-bash
-Copiar
-Editar
+```bash
 npm run coverage
+```
 Ejemplo de salida:
 
-diff
-Copiar
-Editar
+```bash
 ----------------|---------|----------|---------|---------|-------------------
 File            | % Stmts | % Branch | % Funcs | % Lines | Uncovered Lines  
 ----------------|---------|----------|---------|---------|-------------------
 src/calculator  | 100%    | 80%      | 100%    | 100%    | 15-18 (validación)
+```
 9. 🚨 Buenas Prácticas
 ✔ Evitar eval(): Usar math.js o un parser seguro.
 
 ✔ Usar pruebas parametrizadas:
 
-js
-Copiar
-Editar
+```bash
 test.each([
   [1, 2, 3],
   [5, -3, 2],
 ])('Suma %i + %i = %i', (a, b, expected) => {
   expect(sum(a, b)).toBe(expected);
 });
+```
 ✔ Snapshot Testing para objetos complejos:
 
-js
-Copiar
-Editar
+```bash
 test('Configuración de calculadora', () => {
   expect(calculatorConfig).toMatchSnapshot();
 });
+```
+---
+
 10. 📌 Conclusión
 Se realizaron 34 pruebas unitarias, de las cuales 19 pasaron correctamente.
 
@@ -202,9 +207,18 @@ Usar math.js para mejorar precisión.
 
 Validar sintaxis antes de ejecutar cálculos.
 
-11. 🔗 Referencias
+---
+
+## 11. 🔗 Referencias
 Jest - Documentación oficial
 
 Math.js - Precisión matemática en JavaScript
 
 Repositorio GitHub - Calculadora Avanzada
+
+## 🧑‍💻 Autor
+```bash
+💼 GitHub: Jamiltap
+```
+## 📄 Licencia
+Este proyecto está bajo la licencia MIT. Libre para uso y modificación.
