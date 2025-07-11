@@ -40,9 +40,9 @@ npm install --save-dev jest
 # o
 yarn add --dev jest
 ```
-```bash
-3.2 Script en package.json
 
+3.2 Script en package.json
+```bash
 {
   "scripts": {
     "test": "jest",
@@ -51,24 +51,25 @@ yarn add --dev jest
   }
 }
 ```
-4. 🧪 Estructura de Pruebas
+## 4. 🧪 Estructura de Pruebas
 4.1 Arquitectura del Proyecto
-
+```bash
 src/
 ├── calculator.js        # Lógica de la calculadora
 test/
 ├── calculator.test.js   # Pruebas unitarias
-5. 📝 Ejemplo de Prueba
+```
+## 5. 📝 Ejemplo de Prueba
 js
-Copiar
-Editar
+```bash
 // src/calculator.js
 module.exports = {
   sum: (a, b) => a + b,
   subtract: (a, b) => a - b,
   // ... más operaciones
 };
-
+```
+```bash
 // test/calculator.test.js
 const { sum, subtract } = require('../src/calculator');
 
@@ -81,7 +82,8 @@ describe('Operaciones básicas', () => {
     expect(subtract(5, 3)).toBe(2);
   });
 });
-6. 📊 Resultados de Pruebas
+```
+## 6. 📊 Resultados de Pruebas
 ✅ Pruebas Exitosas (19/34)
 Las siguientes operaciones funcionaron correctamente:
 
