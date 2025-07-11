@@ -2,17 +2,17 @@
 
 ## 📑 Índice
 
-1. [Introducción](#introducción)  
-2. [Características Principales](#2-🔹-características-principales)  
-3. [Configuración Inicial](#3-🚀-configuración-inicial)  
-4. [Estructura de Pruebas](#4-🧪-estructura-de-pruebas)  
-5. [Ejemplo de Prueba](#5-📝-ejemplo-de-prueba)  
-6. [Resultados de Pruebas](#6resultados-de-pruebas)  
-7. [Solución a Fallos Comunes](#7-🔧-solución-a-fallos-comunes)  
-8. [Cobertura de Pruebas](#8-📈-cobertura-de-pruebas)  
-9. [Buenas Prácticas](#9-🚨-buenas-prácticas)  
-10. [Conclusión](#10-📌-conclusión)  
-11. [Referencias](#11-🔗-referencias)
+1. [📌 Introducción](#introducción)  
+2. [🔹 Características Principales](#características-principales)  
+3. [🚀 Configuración Inicial](#configuración-inicial)  
+4. [🧪 Estructura de Pruebas](#estructura-de-pruebas)  
+5. [📝 Ejemplo de Prueba](#ejemplo-de-prueba)  
+6. [📊 Resultados de Pruebas](#resultados-de-pruebas)  
+7. [🔧 Solución a Fallos Comunes](#solución-a-fallos-comunes)  
+8. [📈 Cobertura de Pruebas](#cobertura-de-pruebas)  
+9. [🚨 Buenas Prácticas](#buenas-prácticas)  
+10. [📌 Conclusión](#conclusión)  
+11. [🔗 Referencias](#referencias)
 
 ---
 
