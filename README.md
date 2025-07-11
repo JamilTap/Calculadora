@@ -2,12 +2,12 @@
 
 ## 📑 Índice
 
-1. [Introducción](#1.introducción)  
+1. [Introducción](#introducción)  
 2. [Características Principales](#2-🔹-características-principales)  
 3. [Configuración Inicial](#3-🚀-configuración-inicial)  
 4. [Estructura de Pruebas](#4-🧪-estructura-de-pruebas)  
 5. [Ejemplo de Prueba](#5-📝-ejemplo-de-prueba)  
-6. [Resultados de Pruebas](#6-📊-resultados-de-pruebas)  
+6. [Resultados de Pruebas](#6resultados-de-pruebas)  
 7. [Solución a Fallos Comunes](#7-🔧-solución-a-fallos-comunes)  
 8. [Cobertura de Pruebas](#8-📈-cobertura-de-pruebas)  
 9. [Buenas Prácticas](#9-🚨-buenas-prácticas)  
