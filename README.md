@@ -1,4 +1,4 @@
-# 📘 Pruebas Unitarias para una Calculadora Avanzada
+# 📘 Pruebas Unitarias para una Calculadora web
 
 ## 📑 Índice
 
