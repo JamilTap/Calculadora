@@ -2,17 +2,18 @@
 
 ## 📑 Índice
 
-1. [📌 Introducción](#introducción)  
-2. [🔹 Características Principales](#características-principales)  
-3. [🚀 Configuración Inicial](#configuración-inicial)  
-4. [🧪 Estructura de Pruebas](#estructura-de-pruebas)  
-5. [📝 Ejemplo de Prueba](#ejemplo-de-prueba)  
-6. [📊 Resultados de Pruebas](#resultados-de-pruebas)  
-7. [🔧 Solución a Fallos Comunes](#solución-a-fallos-comunes)  
-8. [📈 Cobertura de Pruebas](#cobertura-de-pruebas)  
-9. [🚨 Buenas Prácticas](#buenas-prácticas)  
-10. [📌 Conclusión](#conclusión)  
-11. [🔗 Referencias](#referencias)
+1. [Introducción](#introducción)  
+2. [Características Principales](#características-principales)  
+3. [Configuración Inicial](#configuración-inicial)  
+4. [Estructura de Pruebas](#estructura-de-pruebas)  
+5. [Ejemplo de Prueba](#ejemplo-de-prueba)  
+6. [Resultados de Pruebas](#resultados-de-pruebas)  
+7. [Solución a Fallos Comunes](#solución-a-fallos-comunes)  
+8. [Cobertura de Pruebas](#cobertura-de-pruebas)  
+9. [Buenas Prácticas](#buenas-prácticas)  
+10. [Conclusión](#conclusión)  
+11. [Referencias](#referencias)
+
 
 ---
 
@@ -215,7 +216,7 @@ Jest - [Documentación oficial](https://jestjs.io/docs/getting-started)
 Math.js - [Precisión matemática en JavaScript
 ](https://mathjs.org/)
 
-Repositorio GitHub - [Calculadora Avanzada](https://github.com/JamilTap/Manual-Basico-Calculadora-Web-con-Pruebas-unitarias/tree/main)
+Repositorio GitHub - [Calculadora web](https://github.com/JamilTap/Manual-Basico-Calculadora-Web-con-Pruebas-unitarias/tree/main)
 
 ## 🧑‍💻 Autor
 ```bash
