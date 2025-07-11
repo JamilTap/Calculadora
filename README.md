@@ -210,7 +210,7 @@ Validar sintaxis antes de ejecutar cálculos.
 ---
 
 ## 11. 🔗 Referencias
-Jest - Documentación oficial
+Jest - [Documentación oficial](https://jestjs.io/docs/getting-started)
 
 Math.js - Precisión matemática en JavaScript
 
