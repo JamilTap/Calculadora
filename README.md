@@ -1,125 +1,3 @@
-📘 Pruebas Unitarias para una Calculadora Avanzada
-📑 Índice
-Introducción
-
-Características Principales
-
-Configuración Inicial
-
-Estructura de Pruebas
-
-Ejemplo de Prueba
-
-Resultados de Pruebas
-
-Solución a Fallos Comunes
-
-Cobertura de Pruebas
-
-Buenas Prácticas
-
-Conclusión
-
-Referencias
-
-1. 📌 Introducción
-Este documento describe la implementación de pruebas unitarias para una calculadora avanzada utilizando Jest, uno de los frameworks de testing más populares para JavaScript.
-
-2. 🔹 Características Principales
-✅ Developer Ready: Configuración mínima para proyectos JavaScript.
-
-🏃 Instant Feedback: Modo watch para ejecución rápida de pruebas.
-
-📸 Snapshot Testing: Comparación de objetos complejos.
-
-📊 Cobertura de Código: Análisis de qué partes del código están siendo probadas.
-
-3. 🚀 Configuración Inicial
-3.1 Instalación
-bash
-Copiar
-Editar
-npm install --save-dev jest
-# o
-yarn add --dev jest
-3.2 Script en package.json
-json
-Copiar
-Editar
-{
-  "scripts": {
-    "test": "jest",
-    "test:watch": "jest --watchAll",
-    "coverage": "jest --coverage"
-  }
-}
-4. 🧪 Estructura de Pruebas
-4.1 Arquitectura del Proyecto
-bash
-Copiar
-Editar
-src/
-├── calculator.js        # Lógica de la calculadora
-test/
-├── calculator.test.js   # Pruebas unitarias
-5. 📝 Ejemplo de Prueba
-js
-Copiar
-Editar
-// src/calculator.js
-module.exports = {
-  sum: (a, b) => a + b,
-  subtract: (a, b) => a - b,
-  // ... más operaciones
-};
-
-// test/calculator.test.js
-const { sum, subtract } = require('../src/calculator');
-
-describe('Operaciones básicas', () => {
-  test('Suma 1 + 2 = 3', () => {
-    expect(sum(1, 2)).toBe(3);
-  });
-
-  test('Resta 5 - 3 = 2', () => {
-    expect(subtract(5, 3)).toBe(2);
-  });
-});
-6. 📊 Resultados de Pruebas
-✅ Pruebas Exitosas (19/34)
-Algunas operaciones exitosas:
-
-5 + 3 = 8
-
-10 - 4 = 6
-
-(2+3)*4 = 20
-
-2.5 + 1.5 = 4
-
-❌ Fallos Detectados (15/34)
-Expresión	Resultado	Esperado	Tipo de Error	Causa Probable
-5 + 3	8	9	Error en test	Expectativa incorrecta
-5*	"Error"	"7"	Validación de sintaxis	Expresión incompleta
-0				
-
-
-
-
-
-
-
-
-Dijiste:
-es para github hazlo para copiar
-
-
-ChatGPT dijo:
-Perfecto, aquí tienes el documento completamente ordenado y formateado en Markdown, listo para copiar y pegar directamente en tu README.md de GitHub:
-
-markdown
-Copiar
-Editar
 # 📘 Pruebas Unitarias para una Calculadora Avanzada
 
 ## 📑 Índice
@@ -161,10 +39,10 @@ Este documento describe la implementación de pruebas unitarias para una calcula
 npm install --save-dev jest
 # o
 yarn add --dev jest
+```
+```bash
 3.2 Script en package.json
-json
-Copiar
-Editar
+
 {
   "scripts": {
     "test": "jest",
@@ -172,11 +50,10 @@ Editar
     "coverage": "jest --coverage"
   }
 }
+```
 4. 🧪 Estructura de Pruebas
 4.1 Arquitectura del Proyecto
-bash
-Copiar
-Editar
+
 src/
 ├── calculator.js        # Lógica de la calculadora
 test/
