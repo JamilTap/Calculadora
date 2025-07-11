@@ -152,7 +152,7 @@ function calculate(expr) {
   return eval(expr); // ⚠️ Reemplazar con math.js en producción
 }
 ```
-8. 📈 Cobertura de Pruebas
+## 8. 📈 Cobertura de Pruebas
 Ejecuta:
 
 ```bash
@@ -166,7 +166,7 @@ File            | % Stmts | % Branch | % Funcs | % Lines | Uncovered Lines
 ----------------|---------|----------|---------|---------|-------------------
 src/calculator  | 100%    | 80%      | 100%    | 100%    | 15-18 (validación)
 ```
-9. 🚨 Buenas Prácticas
+## 9. 🚨 Buenas Prácticas
 ✔ Evitar eval(): Usar math.js o un parser seguro.
 
 ✔ Usar pruebas parametrizadas:
@@ -188,7 +188,7 @@ test('Configuración de calculadora', () => {
 ```
 ---
 
-10. 📌 Conclusión
+## 10. 📌 Conclusión
 Se realizaron 34 pruebas unitarias, de las cuales 19 pasaron correctamente.
 
 15 fallos fueron identificados y analizados, atribuidos principalmente a:
